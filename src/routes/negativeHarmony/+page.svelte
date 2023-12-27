@@ -1,4 +1,9 @@
 <script lang="ts">
+	import CircleOfFifths from './CircleOfFifths.svelte';
+	import DraggableCircleOfFifths from './DraggableCircleOfFifths.svelte';
+	import ClickableCircle2 from './ClickableCircle2.svelte';
+	import ShowLinearPairs from './ShowLinearPairs.svelte';
+
 	interface StringMap {
 		[key: string]: string;
 	}
@@ -116,11 +121,23 @@
 	}
 </script>
 
-<input type="text" bind:value={tonic} placeholder="Enter tonic note (e.g., C, c#, D♭, E♭)" />
+<!-- <input type="text" bind:value={tonic} placeholder="Enter tonic note (e.g., C, c#, D♭, E♭)" />
 <button on:click={generateScale}>Generate Major Scale</button>
 
 {#if errorMessage}
 	<p class="error">{errorMessage}</p>
 {:else if majorScale.length > 0}
 	<p>Major Scale: {majorScale.join(' ')}</p>
-{/if}
+{/if} -->
+
+<div>
+	<!-- <ClickableCircle2 /> -->
+	<!-- <DraggableCircleOfFifths /> -->
+	<ShowLinearPairs />
+</div>
+
+<style>
+	div {
+		display: grid;
+	}
+</style>
