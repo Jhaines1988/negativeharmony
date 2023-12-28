@@ -101,8 +101,13 @@
 */
 </script>
 
-<input type="text" bind:value={currentKey} on:input={() => onInputChangeHandler(currentKey)} />
-<h2>Chromatic Pairs in Negative Harmony for {currentKey}</h2>
+<h2>
+	Chromatic Pairs in Negative Harmony for <input
+		type="text"
+		bind:value={currentKey}
+		on:input={() => onInputChangeHandler(currentKey)}
+	/>
+</h2>
 <table>
 	<thead>
 		<tr>
@@ -125,9 +130,14 @@
 	table {
 		border-collapse: collapse;
 		border: 1px solid black;
+		text-align: center;
 	}
 	th,
 	td {
 		border: 1px solid black;
+	}
+
+	td {
+		width: 250px;
 	}
 </style>

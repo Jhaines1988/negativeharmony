@@ -129,15 +129,15 @@
 {:else if majorScale.length > 0}
 	<p>Major Scale: {majorScale.join(' ')}</p>
 {/if} -->
-
+<DraggableCircleOfFifths />
 <div>
 	<!-- <ClickableCircle2 /> -->
-	<!-- <DraggableCircleOfFifths /> -->
-	<ShowLinearPairs />
+
+	<!-- <ShowLinearPairs /> -->
 </div>
 
 <style>
 	div {
-		display: grid;
+		margin-top: 400px;
 	}
 </style>
