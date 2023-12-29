@@ -4,10 +4,9 @@
 		C: [
 			['C', 'D', 'E', 'F', 'G', 'A', 'B'],
 			['G', 'F', 'Eb', 'D', 'C', 'Bb', 'Ab']
-		],
-		c: []
+		]
 	};
-
+	const entries = Object.entries(negativeHarmonyKeyPairs);
 	const negativeHarmonyPairs: NegativeHarmonyPairs = {
 		C: 'G',
 		G: 'D',
@@ -71,6 +70,15 @@
 	type NegativeHarmonyPairs = {
 		[key: string]: string;
 	};
+	type IntervalPairingDictionary = Record<string, string>;
+
+	type KeyDictionary = {
+		[key: string]: IntervalPairingDictionary;
+	};
+
+	const majorScalePairings: KeyDictionary = {
+		CMajor: { C: 'G', F: 'D', Bb: 'A', Eb: 'E', Ab: 'B', Db: 'F#/Gb' }
+	};
 
 	type NegativeHarmonyKeyPairing = {
 		[key: string]: string[][];
@@ -102,8 +110,6 @@
 
 	function selectKey(key: string): void {
 		selectedKey = key;
-		console.log('KEY', key);
-
 		switch (selectedKey) {
 			case 'C':
 			case 'F':
@@ -220,6 +226,10 @@
 	<line id="line-8" stroke="red" stroke-width="2" />
 	<line id="line-10" stroke="red" stroke-width="2" />
 </svg>
+
+<!-- {#each  as }
+	
+{/each} -->
 
 <style>
 	.wheel {
