@@ -3,7 +3,6 @@
 	import { circleOfFifths } from './utility/musicDataUtilities';
 
 	export var selectedKey: string;
-	export let preferSharps = true; // User preference for sharps or flats
 
 	const dispatch = createEventDispatcher();
 	function updateSelectedKey(selectedKey: string) {
@@ -11,15 +10,6 @@
 			value: selectedKey
 		});
 	}
-
-	function updatePrefersSharps(preference: boolean) {
-		preferSharps = preference;
-		dispatch('notationpreference', {
-			value: selectedKey,
-			preference: preferSharps
-		});
-	}
-
 	const keys = Object.keys(circleOfFifths);
 </script>
 
@@ -29,19 +19,17 @@
 		<option value={key}>{key}</option>
 	{/each}
 </select>
-<label>
-	<input
-		type="radio"
-		on:change={() => updatePrefersSharps(true)}
-		bind:group={preferSharps}
-		value={true}
-	/> Prefer Sharps
-</label>
-<label>
-	<input
-		type="radio"
-		on:change={() => updatePrefersSharps(false)}
-		bind:group={preferSharps}
-		value={false}
-	/> Prefer Flats
-</label>
+
+{#each keys as keySignature}
+	<label>
+		<input
+			on:change={() => updateSelectedKey(keySignature)}
+			type="radio"
+			name="scoops"
+			value={keySignature}
+			bind:group={selectedKey}
+		/>
+
+		{keySignature}
+	</label>
+{/each}

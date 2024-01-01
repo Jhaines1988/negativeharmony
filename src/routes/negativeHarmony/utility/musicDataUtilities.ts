@@ -1,49 +1,48 @@
 
 export const circleOfFifths: { [key: string]: string[] } = {
-    C: ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'Db', 'Ab', 'Eb', 'Bb', 'F'],
-    // "B#": ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'Db', 'Ab', 'Eb', 'Bb', 'F'],
-    'C#': ['C#', 'G#', 'D#', 'A#', 'E#', 'B#', 'F𝄪', "D", "A", "E", "B", "F#"],
-    Db: ['C', 'G', 'D', 'A', 'E', 'B', 'Gb', 'Db', 'Ab', 'Eb', 'Bb', 'F'],
-    D: ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#', 'G#', 'Eb', 'Bb', 'F'],
-    // "D#": ['C', 'G', 'D', 'A', 'E', 'B', 'F#/Gb', 'Db', 'Ab', 'Eb', 'Bb', 'F'],
-    Eb: ['C', 'G', 'D', 'A', 'E', 'B', 'Gb', 'Db', 'Ab', 'Eb', 'Bb', 'F'],
-    E: ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#', 'G#', 'D#', 'A#', 'F'],
-    F: ['C', 'G', 'D', 'A', 'E', 'B', 'Gb', 'Db', 'Ab', 'Eb', 'Bb', 'F'],
-    'F#': ['C#', 'G#', 'D#', 'A#', 'E#', 'B#', 'G', 'D', 'A', 'E', 'B', 'F#',],
-    // 'F#/Gb': ['C#', 'G#', 'D#', 'A#', 'E#', 'B#', 'G', 'D', 'A', 'E', 'B', 'F#',],
-    Gb: ['C', 'G', 'D', 'A', 'E', 'B', 'Gb', 'Db', 'Ab', 'Eb', 'Bb', 'F'],
-    G: ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#', 'Ab', 'Eb', 'Bb', 'F'],
-    "G#": ['C#', "G#", 'D#', 'A#', 'E#', 'B#', 'F𝄪', 'D', 'A', 'E', 'B', 'F#'],
-    Ab: ['C', 'G', 'D', 'A', 'E', 'B', 'Gb', 'Db', 'Ab', 'Eb', 'Bb', 'F'],
-    A: ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#', 'G#', 'D#', 'Bb', 'F'],
-    Bb: ['C', 'G', 'D', 'A', 'E', 'B', 'Gb', 'Db', 'Ab', 'Eb', 'Bb', 'F'],
-    B: ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#', 'G#', 'D#', 'A#', 'F']
+    C: ['C', 'G', 'D', 'A', 'E', 'B', 'F♯', 'D♭', 'A♭', 'E♭', 'B♭', 'F'],
+    // 'C♯': ['1', '5', '2', '6', '3', '7', '♯4', '♭2', '♭6', '♭3', '♭7', '♭4'],
+    "C♯": ['C', 'F𝄪', 'D', 'A', 'E', 'B', 'F♯', 'C♯', 'G♯', 'D♯', 'A♯', 'E♯'],
+    "D♭": ['C', 'G', 'D', 'A', 'E', 'B', 'G♭', 'D♭', 'A♭', 'E♭', 'B♭', 'F'],
+    D: ['C', 'G', 'D', 'A', 'E', 'B', 'F♯', 'C♯', 'G♯', 'E♭', 'B♭', 'F'],
+    "E♭": ['C', 'G', 'D', 'A', 'F♭', 'C♭', 'G♭', 'D♭', 'A♭', 'E♭', 'B♭', 'F'],
+    E: ['C', 'G', 'D', 'A', 'E', 'B', 'F♯', 'C♯', 'G♯', 'D♯', 'A♯', 'F'],
+    F: ['C', 'G', 'D', 'A', 'E', 'B', 'G♭', 'D♭', 'A♭', 'E♭', 'B♭', 'F'],
+    'F♯': ['B♯', 'G', 'D', 'A', 'E', 'B', "F♯", 'C♯', 'G♯', 'D♯', 'A♯', 'E♯',],
+    "G♭": ['D♭♭', 'A♭♭', 'E♭♭', 'B♭♭', 'F♭', 'C♭', 'G♭', 'D♭', 'A♭', 'E♭', 'B♭', 'F'],
+    G: ['C', 'G', 'D', 'A', 'E', 'B', 'F♯', 'C♯', 'A♭', 'E♭', 'B♭', 'F'],
+    "G♯": ['C#', "G♯", 'D♯', 'A♯', 'E♯', 'B♯', 'F𝄪', 'D', 'A', 'E', 'B', 'F♯'],
+    "A♭": ['C', 'G', 'D', 'B♭♭', 'F♭', 'C♭', 'G♭', 'D♭', 'A♭', 'E♭', 'B♭', 'F'],
+    A: ['C', 'G', 'D', 'A', 'E', 'B', 'F♯', 'C♯', 'G♯', 'D♯', 'B♭', 'F'],
+    "B♭": ['C', 'G', 'D', 'A', 'E', 'B', 'G♭', 'D♭', 'A♭', 'E♭', 'B♭', 'F'],
+    B: ['C', 'G', 'D', 'A', 'E', 'B', 'F♯', 'C♯', 'G♯', 'D♯', 'A♯', 'F']
 };
 
-export const majorScales: { [key: string]: string[] } = {
-    C: ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
-    'C#': ['C#', 'D#', 'F', 'F#', 'G#', 'A#', 'C'],
-    Db: ['Db', 'Eb', 'F', 'Gb', 'Ab', 'Bb', 'C'],
-    D: ['D', 'E', 'F#', 'G', 'A', 'B', 'C#'],
-    Eb: ['Eb', 'F', 'G', 'Ab', 'Bb', 'C', 'D'],
-    E: ['E', 'F#', 'G#', 'A', 'B', 'C#', 'D#'],
-    F: ['F', 'G', 'A', 'Bb', 'C', 'D', 'E'],
-    'F#': ['F#', 'G#', 'A#', 'B', 'C#', 'D#', 'F'],
-    Gb: ['Gb', 'Ab', 'Bb', 'Cb', 'Db', 'Eb', 'F'],
-    G: ['G', 'A', 'B', 'C', 'D', 'E', 'F#'],
-    Ab: ['Ab', 'Bb', 'C', 'Db', 'Eb', 'F', 'G'],
-    A: ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],
-    Bb: ['Bb', 'C', 'D', 'Eb', 'F', 'G', 'A'],
-    B: ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#']
-};
+// export const majorScales: { [key: string]: string[] } = {
+//     C: ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
+//     'C♯': ['C♯', 'D♯', 'F', 'F♯', 'G♯', 'A♯', 'C'],
+//     D♭: ['D♭', 'E♭', 'F', 'G♭', 'A♭', 'B♭', 'C'],
+//     D: ['D', 'E', 'F♯', 'G', 'A', 'B', 'C♯'],
+//     E♭: ['E♭', 'F', 'G', 'A♭', 'B♭', 'C', 'D'],
+//     E: ['E', 'F♯', 'G♯', 'A', 'B', 'C♯', 'D♯'],
+//     F: ['F', 'G', 'A', 'B♭', 'C', 'D', 'E'],
+//     'F♯': ['F♯', 'G♯', 'A♯', 'B', 'C♯', 'D♯', 'F'],
+//     G♭: ['G♭', 'A♭', 'B♭', 'C♭', 'D♭', 'E♭', 'F'],
+//     G: ['G', 'A', 'B', 'C', 'D', 'E', 'F♯'],
+//     A♭: ['A♭', 'B♭', 'C', 'D♭', 'E♭', 'F', 'G'],
+//     A: ['A', 'B', 'C♯', 'D', 'E', 'F♯', 'G♯'],
+//     B♭: ['B♭', 'C', 'D', 'E♭', 'F', 'G', 'A'],
+//     B: ['B', 'C♯', 'D♯', 'E', 'F♯', 'G♯', 'A♯']
+// };
 
 
 
-export const enharmonicKeys: string[] = ['G#', 'D#', 'A#', 'B#', 'E#', 'Fb', 'Cb', 'F𝄪'];
-export const harmonicEquivalents: string[] = ['Ab', 'Eb', 'Bb', 'C', 'F', 'E', 'B', 'G'];
+const enharmonicKeys: string[] = ['D♯', 'A♯', 'B♯', 'E♯', 'F♭', 'C♭', 'F𝄪', 'B♭♭', 'E♭♭', 'A♭♭', 'D♭♭'];
+const harmonicEquivalents: string[] = ['E♭', 'B♭', 'C', 'F', 'E', 'B', 'G', "A", "D", "G", "C"];
 
 export function filterSelectedKeyForEnharmonics(selectedKey: string): string {
     const index = enharmonicKeys.indexOf(selectedKey);
+    console.log("INDEX", index, selectedKey)
     if (index >= 0) {
         selectedKey = harmonicEquivalents[index];
         console.log("SELECTGED KEY", selectedKey)
@@ -57,23 +56,23 @@ export function filterSelectedKeyForEnharmonics(selectedKey: string): string {
         // Chromatic scale with both 'b' and '♭' representations for flats
         const chromaticScale: string[] = [
             'C',
-            'C#',
+            'C♯',
             'Db',
             'D♭',
             'D',
-            'D#',
+            'D♯',
             'Eb',
             'E♭',
             'E',
             'F',
-            'F#',
+            'F♯',
             'Gb',
             'G',
-            'G#',
+            'G♯',
             'Ab',
             'A♭',
             'A',
-            'A#',
+            'A♯',
             'Bb',
             'B♭',
             'B'
@@ -81,20 +80,20 @@ export function filterSelectedKeyForEnharmonics(selectedKey: string): string {
         // Example usage
         let keys: StringMap = {
             C: 'C D E F G A B',
-            'C#': 'C# D# E# F# A# B#',
+            'C♯': 'C♯ D♯ E♯ F♯ A♯ B♯',
             'D♭': 'D♭ E♭ F G♭ A♭ B♭ C',
             Db: 'D♭ E♭ F G♭ A♭ B♭ C',
-            D: 'D E F# G A B C# ',
+            D: 'D E F♯ G A B C♯ ',
             'E♭': 'E♭ F G A♭ B♭ C D',
             Eb: 'E♭ F G A♭ B♭ C D',
-            E: 'E F# G# A B C# D#',
+            E: 'E F♯ G♯ A B C♯ D♯',
             F: 'F G A B♭ C D E',
-            'F#': 'F# G# A# B C# D# E#',
+            'F♯': 'F♯ G♯ A♯ B C♯ D♯ E♯',
             'G♭': 'G♭ A♭ B♭ C♭ D♭ E♭ F',
             Gb: 'G♭ A♭ B♭ C♭ D♭ E♭ F',
-            G: 'G A B C D E F#',
-            'G#': 'G# A# B# C# D# E# F##',
-            A: 'A B C# D E F# G#',
+            G: 'G A B C D E F♯',
+            'G♯': 'G♯ A♯ B♯ C♯ D♯ E♯ F♯♯',
+            A: 'A B C♯ D E F♯ G♯',
             Ab: 'A♭ B♭ C D♭ E♭ F G',
             'A♭': 'A♭ B♭ C D♭ E♭ F G',
             'B♭': 'B♭ C D E♭ F G♭ A',
@@ -129,9 +128,9 @@ export function filterSelectedKeyForEnharmonics(selectedKey: string): string {
     function generateScale() {
         let keyIndentifier: string = tonic.slice(0, 1).toUpperCase().concat(tonic.slice(1));
         try {
-            // Updated regex to match notes with uppercase/lowercase, sharp (#), flat 'b', and flat symbol '♭'
-            if (!tonic || !/^[a-gA-G](#|b|♭)?$/.test(tonic.trim())) {
-                throw new Error('Please enter a valid tonic note (e.g., C, c#, D♭, Eb, E♭)');
+            // Updated regex to match notes with uppercase/lowercase, sharp (♯), flat 'b', and flat symbol '♭'
+            if (!tonic || !/^[a-gA-G](♯|b|♭)?$/.test(tonic.trim())) {
+                throw new Error('Please enter a valid tonic note (e.g., C, c♯, D♭, Eb, E♭)');
             }
             majorScale = keys[keyIndentifier].split('');
             errorMessage = null;

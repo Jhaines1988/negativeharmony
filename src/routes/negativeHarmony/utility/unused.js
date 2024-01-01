@@ -34,3 +34,27 @@ try {
         errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred';
     }
 */
+
+
+// export function calculateRotationForKey(currentRotation: number, key: string, notes: string[]): number {
+//     const index = notes.indexOf(key);
+//     const targetRotation = -index * 30;
+//     const normalizedCurrentRotation = currentRotation % 360;
+
+//     let clockwiseDistance, counterclockwiseDistance;
+
+//     if (targetRotation >= normalizedCurrentRotation) {
+//         clockwiseDistance = targetRotation - normalizedCurrentRotation;
+//         counterclockwiseDistance = normalizedCurrentRotation + 360 - targetRotation;
+//     } else {
+//         clockwiseDistance = 360 - normalizedCurrentRotation + targetRotation;
+//         counterclockwiseDistance = normalizedCurrentRotation - targetRotation;
+//     }
+
+//     if (clockwiseDistance < counterclockwiseDistance) {
+//         return normalizedCurrentRotation + clockwiseDistance;
+//     } else {
+//         return normalizedCurrentRotation - counterclockwiseDistance;
+//     }
+// }
+// This variable holds the current rotation of the circle

@@ -1,54 +1,54 @@
 <script lang="ts">
 	import KeySelector from './KeySelector.svelte';
 	import CircleOfFifthsByKey from './CircleOfFifthsByKey.svelte';
-	import {
-		drawLine,
-		getElementPosition,
-		applyRotationToCircle,
-		type Position,
-		calculateRotationForKey
-	} from './utility/drawingUtilities';
+	import { calculateRotationForKey } from './utility/drawingUtilities';
 	import { circleOfFifths, filterSelectedKeyForEnharmonics } from './utility/musicDataUtilities';
+	import ShowLinearPairs from './ShowLinearPairs.svelte';
 
-	let currentRotation: number = 0;
 	let selectedKeyInParent = 'C';
-	let preferSharpsInParent: boolean;
-	var notesInParent = ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'Db', 'Ab', 'Eb', 'Bb', 'F'];
+	var notesInParent = circleOfFifths[selectedKeyInParent];
 	var rotationinParent: number = 0;
 
 	function handleKeyChange(e: any) {
 		var filteredKey: string = filterSelectedKeyForEnharmonics(e.detail.value);
 		selectedKeyInParent = filteredKey;
-		notesInParent = circleOfFifths[selectedKeyInParent];
+		console.log('Selected Key In parent: ', selectedKeyInParent);
+		console.log('Filtered Key In parent: ', filteredKey);
+
+		var newNotes = circleOfFifths[filteredKey];
+		console.log('New notes in parent', newNotes);
+		notesInParent = newNotes;
 		rotationinParent = calculateRotationForKey(selectedKeyInParent, notesInParent);
+		// getAllNoteDisplayElements(selectedKeyInParent);
 	}
-	function handleUpdateNotationPreference(e: any) {
-		preferSharpsInParent = e.detail.preference;
-		handleKeyChange(e);
+	function getAllNoteDisplayElements(selectedKey: string) {
+		var allNotes: HTMLCollection = document.getElementsByClassName('note-display');
+		var notesInSelectedKey = circleOfFifths[selectedKey];
+
+		Array.from(allNotes).forEach((note, index) => {
+			note.innerHTML = notesInSelectedKey[index];
+		});
 	}
 </script>
 
-<KeySelector
-	on:keychange={handleKeyChange}
-	on:notationpreference={handleUpdateNotationPreference}
-	bind:preferSharps={preferSharpsInParent}
-	bind:selectedKey={selectedKeyInParent}
-/>
-
-{#if selectedKeyInParent}
-	<p>Selected Key: {selectedKeyInParent}</p>
-	<CircleOfFifthsByKey
-		on:keychange={handleKeyChange}
-		bind:rotation={rotationinParent}
-		bind:notes={notesInParent}
-		bind:selectedKey={selectedKeyInParent}
-		bind:preferSharps={preferSharpsInParent}
-	/>
-{/if}
-<div>{preferSharpsInParent}</div>
+<KeySelector on:keychange={handleKeyChange} bind:selectedKey={selectedKeyInParent} />
+<div>
+	{#if selectedKeyInParent}
+		<p>Selected Key: {selectedKeyInParent}</p>
+		<CircleOfFifthsByKey
+			on:keychange={handleKeyChange}
+			bind:rotation={rotationinParent}
+			bind:notes={notesInParent}
+			bind:selectedKey={selectedKeyInParent}
+		/>
+	{/if}
+</div>
+<ShowLinearPairs />
 
 <style>
 	div {
-		margin-top: 400px;
+		display: grid;
+		height: 600px;
+		margin-bottom: 100px;
 	}
 </style>

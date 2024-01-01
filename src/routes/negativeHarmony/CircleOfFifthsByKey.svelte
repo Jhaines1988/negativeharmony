@@ -1,59 +1,39 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
-	import {
-		drawLine,
-		getElementPosition,
-		calculateRotationForKey,
-		getNoteElementsForDrawingPairs,
-		type Position
-	} from './utility/drawingUtilities';
+	import { getNoteElementsForDrawingPairs } from './utility/drawingUtilities';
+	export var selectedKey: string;
+	export var notes: string[];
+	export var rotation: number = 0;
 	const dispatch = createEventDispatcher();
 	function updateSelectedKey(selectedKey: string) {
 		dispatch('keychange', {
 			value: selectedKey
 		});
 	}
-	export var selectedKey: string;
-	export let preferSharps = true;
-	export var notes: string[];
-	export var rotation: number = 0;
-	$: sharps = preferSharps;
 
 	type PositiveNegativeAxisPairs = {
 		[key: string]: () => string;
 	};
 
-	// RENAME to axis pairs
 	const positiveNegativeAxisPairs: PositiveNegativeAxisPairs = {
 		C: () => 'G',
-		'C#': () => 'G#',
+		'C♯': () => 'G♯',
 		G: () => 'D',
-		F: () => 'C',
+		'G♯': () => 'D♯',
 		D: () => 'A',
-		Bb: () => 'F',
+		'D♯': () => 'A♯',
 		A: () => 'E',
-		Eb: () => 'Bb',
+		'B♭': () => 'F',
+		'E♭': () => 'B♭',
 		E: () => 'B',
-		Ab: () => 'Eb',
-		B: () => 'F#',
-		Db: () => 'Ab',
-		Gb: () => 'Db',
-		'F#': () => 'C#',
-		'B#': () => 'G',
-		'G#': () => 'Eb'
+		'A♭': () => 'E♭',
+		B: () => 'F♯',
+		'D♭': () => 'A♭',
+		'G♭': () => 'D♭',
+		'F♯': () => 'C♯',
+		'B♯': () => 'F♯♯',
+		F: () => 'C'
 	};
-
-	function selectKey(key: string): void {
-		// selectedKey = key;
-
-		/*
-		
-		style="transform: rotate({-90 + index * 30}deg) translateX(120px) rotate({90 -index * 30 -rotation}deg);"*/
-		// notes = circleOfFifths[selectedKey];
-		// rotation = calculateRotationForKey(selectedKey, notes);
-		// // notes = notes;
-		updateSelectedKey(key);
-	}
 
 	onMount(() => {
 		// rotation = calculateRotationForKey(selectedKey, notes);
@@ -64,6 +44,7 @@
 	function getPairLineTransform(note: string): string {
 		try {
 			const index = notes.indexOf(note);
+
 			const pairIndex = notes.indexOf(positiveNegativeAxisPairs[note]());
 			if (typeof pairIndex === 'undefined') {
 				throw new Error('pair unfound');
@@ -75,7 +56,7 @@
 			console.log(error, 'error');
 			console.log('note', note);
 		}
-		return '';
+		return 'error';
 	}
 </script>
 

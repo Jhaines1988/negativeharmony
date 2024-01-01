@@ -1,3 +1,5 @@
+import { circleOfFifths } from "./musicDataUtilities";
+
 export type Position = {
     x: number;
     y: number;
@@ -9,71 +11,20 @@ interface Circle {
     radius: number;
 }
 
-// let currentRotation = 0;
+const buttonRadius = 30;
+
+
 
 export function calculateRotationForKey(key: string, notes: string[]): number {
     const index = notes.indexOf(key);
-    console.log("INDEXINROT", index)
-    console.log("rotation", -index * 30)
+    console.log("INDEX", index)
     return -index * 30
 }
-// export function calculateRotationForKey(currentRotation: number, key: string, notes: string[]): number {
-//     const index = notes.indexOf(key);
-//     const targetRotation = -index * 30;
-//     const normalizedCurrentRotation = currentRotation % 360;
-
-//     let clockwiseDistance, counterclockwiseDistance;
-
-//     if (targetRotation >= normalizedCurrentRotation) {
-//         clockwiseDistance = targetRotation - normalizedCurrentRotation;
-//         counterclockwiseDistance = normalizedCurrentRotation + 360 - targetRotation;
-//     } else {
-//         clockwiseDistance = 360 - normalizedCurrentRotation + targetRotation;
-//         counterclockwiseDistance = normalizedCurrentRotation - targetRotation;
-//     }
-
-//     if (clockwiseDistance < counterclockwiseDistance) {
-//         return normalizedCurrentRotation + clockwiseDistance;
-//     } else {
-//         return normalizedCurrentRotation - counterclockwiseDistance;
-//     }
-// }
-// This variable holds the current rotation of the circle
-
-export function rotateCircle(key: string, notes: string[], currentRotation: number): number {
-    const rotationIncrement = calculateRotationForKey(key, notes);
-    currentRotation += rotationIncrement;
-
-    // Normalize the rotation
-    currentRotation = currentRotation % 360;
-
-    // Apply the rotation to your circle element (for example, with a CSS transform)
-    applyRotationToCircle(currentRotation);
-    return currentRotation;
-}
-
-export function applyRotationToCircle(rotationDegree: number): void {
-    const circleElement = document.getElementById('wheel');
-    if (circleElement) {
-        circleElement.style.transform = `rotate(${rotationDegree}deg)`;
-    }
-}
-
-// Your calculateRotationForKey function here
 
 
-export function getAxisLineTransform(notes: string[], selectedKey: string): string {
-    const index = notes.indexOf(selectedKey);
-    const fifthIndex = (index + 1) % notes.length; // Index of the fifth note
-    const angle = (index + fifthIndex) * 15 - 90; // Average angle of the selected key and its fifth
-    return `rotate(${angle}deg)`;
-}
 
-
-const buttonRadius = 30; // Since your buttons are effectively circles with a 20px radius
 
 export function getNoteElementsForDrawingPairs(): void {
-    // ... (rest of your element selection code)
     var n0 = document.getElementById('note-0');
     var n1 = document.getElementById('note-1');
     var n11 = document.getElementById('note-11');
@@ -153,3 +104,4 @@ function getAdjustedLinePoints(circle1: Circle, circle2: Circle): { startX: numb
         endY: adjustedEndY
     };
 }
+

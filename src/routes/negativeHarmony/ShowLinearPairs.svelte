@@ -81,24 +81,6 @@
 		);
 		currentChromaticPair = generateNegativeChromaticPairArray(currentChromaticScale);
 	}
-	/*
-	{#each notes as note, index}
-		<div
-			class="note"
-			style="transform: rotate({-90 + index * 30}deg) translateX(120px) rotate({90 -
-				index * 30 -
-				rotation}deg);"
-			on:click={() => selectKey(note)}
-		>
-			{note}
-		</div>
-
-		{#if negativeHarmonyPairs[note]}
-			{console.log('negative', negativeHarmonyPairs[note])}
-			<div class="line" style="transform: {getPairLineTransform(note)};"></div>
-		{/if}
-	{/each}
-*/
 </script>
 
 <h2>
