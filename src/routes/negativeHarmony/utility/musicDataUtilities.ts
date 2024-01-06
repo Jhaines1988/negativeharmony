@@ -1,9 +1,8 @@
 
 export const circleOfFifths: { [key: string]: string[] } = {
     C: ['C', 'G', 'D', 'A', 'E', 'B', 'F♯', 'D♭', 'A♭', 'E♭', 'B♭', 'F'],
-    // 'C♯': ['1', '5', '2', '6', '3', '7', '♯4', '♭2', '♭6', '♭3', '♭7', '♭4'],
     "C♯": ['C', 'F𝄪', 'D', 'A', 'E', 'B', 'F♯', 'C♯', 'G♯', 'D♯', 'A♯', 'E♯'],
-    "D♭": ['C', 'G', 'D', 'A', 'E', 'B', 'G♭', 'D♭', 'A♭', 'E♭', 'B♭', 'F'],
+    "D♭": ['C', 'A♭♭', 'E♭♭', 'B♭♭', 'F♭', 'C♭', 'G♭', 'D♭', 'A♭', 'E♭', 'B♭', 'F'],
     D: ['C', 'G', 'D', 'A', 'E', 'B', 'F♯', 'C♯', 'G♯', 'E♭', 'B♭', 'F'],
     "E♭": ['C', 'G', 'D', 'A', 'F♭', 'C♭', 'G♭', 'D♭', 'A♭', 'E♭', 'B♭', 'F'],
     E: ['C', 'G', 'D', 'A', 'E', 'B', 'F♯', 'C♯', 'G♯', 'D♯', 'A♯', 'F'],
@@ -18,27 +17,49 @@ export const circleOfFifths: { [key: string]: string[] } = {
     B: ['C', 'G', 'D', 'A', 'E', 'B', 'F♯', 'C♯', 'G♯', 'D♯', 'A♯', 'F']
 };
 
-// export const majorScales: { [key: string]: string[] } = {
-//     C: ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
-//     'C♯': ['C♯', 'D♯', 'F', 'F♯', 'G♯', 'A♯', 'C'],
-//     D♭: ['D♭', 'E♭', 'F', 'G♭', 'A♭', 'B♭', 'C'],
-//     D: ['D', 'E', 'F♯', 'G', 'A', 'B', 'C♯'],
-//     E♭: ['E♭', 'F', 'G', 'A♭', 'B♭', 'C', 'D'],
-//     E: ['E', 'F♯', 'G♯', 'A', 'B', 'C♯', 'D♯'],
-//     F: ['F', 'G', 'A', 'B♭', 'C', 'D', 'E'],
-//     'F♯': ['F♯', 'G♯', 'A♯', 'B', 'C♯', 'D♯', 'F'],
-//     G♭: ['G♭', 'A♭', 'B♭', 'C♭', 'D♭', 'E♭', 'F'],
-//     G: ['G', 'A', 'B', 'C', 'D', 'E', 'F♯'],
-//     A♭: ['A♭', 'B♭', 'C', 'D♭', 'E♭', 'F', 'G'],
-//     A: ['A', 'B', 'C♯', 'D', 'E', 'F♯', 'G♯'],
-//     B♭: ['B♭', 'C', 'D', 'E♭', 'F', 'G', 'A'],
-//     B: ['B', 'C♯', 'D♯', 'E', 'F♯', 'G♯', 'A♯']
-// };
+export const majorScales: { [key: string]: string[] } = {
+    C: ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
+    'C♯': ['C♯', 'D♯', 'E♯', 'F♯', 'G♯', 'A♯', 'B♯'],
+    'D♭': ['D♭', 'E♭', 'F', 'G♭', 'A♭', 'B♭', 'C'],
+    D: ['D', 'E', 'F♯', 'G', 'A', 'B', 'C♯'],
+    'E♭': ['E♭', 'F', 'G', 'A♭', 'B♭', 'C', 'D'],
+    E: ['E', 'F♯', 'G♯', 'A', 'B', 'C♯', 'D♯'],
+    F: ['F', 'G', 'A', 'B♭', 'C', 'D', 'E'],
+    'F♯': ['F♯', 'G♯', 'A♯', 'B', 'C♯', 'D♯', 'F'],
+    'G♭': ['G♭', 'A♭', 'B♭', 'C♭', 'D♭', 'E♭', 'F'],
+    G: ['G', 'A', 'B', 'C', 'D', 'E', 'F♯'],
+    'G♯': ['G♯', 'A♯', 'B♯', 'C♯', 'D♯', 'E♯', 'F𝄪'],
+    'A♭': ['A♭', 'B♭', 'C', 'D♭', 'E♭', 'F', 'G'],
+    A: ['A', 'B', 'C♯', 'D', 'E', 'F♯', 'G♯'],
+    'B♭': ['B♭', 'C', 'D', 'E♭', 'F', 'G', 'A'],
+    B: ['B', 'C♯', 'D♯', 'E', 'F♯', 'G♯', 'A♯']
+};
 
-
+export const majorScalesReflections: { [key: string]: string[] } = {
+    C: ['G', 'F', 'E♭', 'D', 'C', 'B♭', 'A♭'],
+    'C♯': ['G♯', 'F♯', 'E', 'D♯', 'C♯', 'B', 'A'],
+    'D♭': ['A♭', 'G♭', 'F♭', 'E♭', 'D♭', 'C♭', 'B♭♭'],
+    D: ['A', 'G', 'F', 'E', 'D', 'C', 'B♭'],
+    'E♭': ['B♭', 'A♭', 'G♭', 'F', 'E♭', 'D♭', 'C♭'],
+    E: ['B', 'A', 'G', 'F♯', 'E', 'D', 'C'],
+    F: ['C', 'B♭', 'A♭', 'G', 'F', 'E♭', 'D♭'],
+    'F♯': ['C♯', 'B♯', 'A', 'G♯', 'F♯', 'E', 'D'],
+    'G♭': ['D♭', 'C♭', 'B♭♭', 'A♭', 'G♭', 'F♭', 'E♭♭'],
+    G: ['D', 'C', 'B♭', 'A', 'G', 'F', 'E♭'],
+    'G♯': ['D♯', 'C♯', 'B', 'A♯', 'G♯', 'F', 'E'],
+    'A♭': ['E♭', 'D♭', 'C♭', 'B♭', 'A♭', 'G♭', 'F♭'],
+    A: ['E', 'D', 'C', 'B', 'A', 'G', 'F'],
+    'B♭': ['F', 'E♭', 'D♭', 'C', 'B♭', 'A♭', 'G♭'],
+    B: ['F♯', 'E', 'D', 'C♯', 'B', 'A', 'G']
+};
 
 const enharmonicKeys: string[] = ['D♯', 'A♯', 'B♯', 'E♯', 'F♭', 'C♭', 'F𝄪', 'B♭♭', 'E♭♭', 'A♭♭', 'D♭♭'];
 const harmonicEquivalents: string[] = ['E♭', 'B♭', 'C', 'F', 'E', 'B', 'G', "A", "D", "G", "C"];
+export function generateNegativesFromCircleOfFifths(circleOfFifthsArray: string[]): string[][] {
+    const major = [circleOfFifthsArray[0], circleOfFifthsArray[2], circleOfFifthsArray[4], circleOfFifthsArray[11], circleOfFifthsArray[1], circleOfFifthsArray[3], circleOfFifthsArray[5]];
+    const pairs = [circleOfFifthsArray[1], circleOfFifthsArray[11], circleOfFifthsArray[9], circleOfFifthsArray[3], circleOfFifthsArray[0], circleOfFifthsArray[10], circleOfFifthsArray[8]]
+    return [major, pairs];
+}
 
 export function filterSelectedKeyForEnharmonics(selectedKey: string): string {
     const index = enharmonicKeys.indexOf(selectedKey);
@@ -48,6 +69,23 @@ export function filterSelectedKeyForEnharmonics(selectedKey: string): string {
         console.log("SELECTGED KEY", selectedKey)
     }
     return selectedKey;
+}
+
+
+
+export function generateNegativePairsFromChromaticScale(
+    chromaticArray: string[]
+): Record<string, string> {
+    var darkSideOfCircle = chromaticArray.slice(10).concat(chromaticArray.slice(0, 4));
+    var lightSideOfCircle = chromaticArray.slice(4, 10);
+    lightSideOfCircle.reverse();
+    const pairDictionary: Record<string, string> = {};
+    for (let i = 0; i < darkSideOfCircle.length; i++) {
+        const noteValue = darkSideOfCircle[i];
+        pairDictionary[noteValue] = lightSideOfCircle[i];
+    }
+
+    return pairDictionary;
 }
 
 

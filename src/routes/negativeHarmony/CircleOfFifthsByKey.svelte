@@ -36,9 +36,7 @@
 	};
 
 	onMount(() => {
-		// rotation = calculateRotationForKey(selectedKey, notes);
 		getNoteElementsForDrawingPairs();
-		// console.count('mount');
 	});
 
 	function getPairLineTransform(note: string): string {
@@ -63,7 +61,6 @@
 <div class="wheel" id="wheel" style="transform: translate(-50%, -50%) rotate({rotation}deg);">
 	{#each notes as note, index}
 		<button
-			tabindex="0"
 			type="button"
 			class="note"
 			id="note-{index}"

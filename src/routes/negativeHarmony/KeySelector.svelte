@@ -13,19 +13,15 @@
 	const keys = Object.keys(circleOfFifths);
 </script>
 
-<select bind:value={selectedKey} on:change={() => updateSelectedKey(selectedKey)}>
-	<option value="" disabled>Select a key</option>
-	{#each keys as key}
-		<option value={key}>{key}</option>
-	{/each}
-</select>
-
 {#each keys as keySignature}
-	<label>
+	<label for="key-signature-{keySignature}">
 		<input
 			on:change={() => updateSelectedKey(keySignature)}
+			on:focus={() => updateSelectedKey(keySignature)}
 			type="radio"
-			name="scoops"
+			id="key-signature-{keySignature}"
+			tabindex="0"
+			name="key-signature-{keySignature}"
 			value={keySignature}
 			bind:group={selectedKey}
 		/>

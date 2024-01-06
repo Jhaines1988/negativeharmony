@@ -12,26 +12,17 @@
 	function handleKeyChange(e: any) {
 		var filteredKey: string = filterSelectedKeyForEnharmonics(e.detail.value);
 		selectedKeyInParent = filteredKey;
-		console.log('Selected Key In parent: ', selectedKeyInParent);
-		console.log('Filtered Key In parent: ', filteredKey);
-
 		var newNotes = circleOfFifths[filteredKey];
-		console.log('New notes in parent', newNotes);
 		notesInParent = newNotes;
 		rotationinParent = calculateRotationForKey(selectedKeyInParent, notesInParent);
-		// getAllNoteDisplayElements(selectedKeyInParent);
-	}
-	function getAllNoteDisplayElements(selectedKey: string) {
-		var allNotes: HTMLCollection = document.getElementsByClassName('note-display');
-		var notesInSelectedKey = circleOfFifths[selectedKey];
-
-		Array.from(allNotes).forEach((note, index) => {
-			note.innerHTML = notesInSelectedKey[index];
-		});
 	}
 </script>
 
-<KeySelector on:keychange={handleKeyChange} bind:selectedKey={selectedKeyInParent} />
+<KeySelector
+	on:keychange={handleKeyChange}
+	on:focus={handleKeyChange}
+	bind:selectedKey={selectedKeyInParent}
+/>
 <div>
 	{#if selectedKeyInParent}
 		<p>Selected Key: {selectedKeyInParent}</p>
@@ -43,12 +34,12 @@
 		/>
 	{/if}
 </div>
-<ShowLinearPairs />
+<ShowLinearPairs bind:notes={notesInParent} bind:selectedKey={selectedKeyInParent} />
 
 <style>
 	div {
 		display: grid;
-		height: 600px;
+		height: 300px;
 		margin-bottom: 100px;
 	}
 </style>

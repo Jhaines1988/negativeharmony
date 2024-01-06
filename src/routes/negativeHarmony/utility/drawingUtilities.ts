@@ -17,30 +17,33 @@ const buttonRadius = 30;
 
 export function calculateRotationForKey(key: string, notes: string[]): number {
     const index = notes.indexOf(key);
-    console.log("INDEX", index)
     return -index * 30
 }
 
-
-
-
+export function getNoteValuesFromPairs(): string[] {
+    return getPairs().map((note) => note.innerText)
+}
+export function getPairs(): HTMLElement[] {
+    var n0 = document.getElementById('note-0') as HTMLElement;
+    var n1 = document.getElementById('note-1') as HTMLElement;
+    var n11 = document.getElementById('note-11') as HTMLElement;
+    var n2 = document.getElementById('note-2') as HTMLElement;
+    var n10 = document.getElementById('note-10') as HTMLElement;
+    var n3 = document.getElementById('note-3') as HTMLElement;
+    var n9 = document.getElementById('note-9') as HTMLElement;
+    var n4 = document.getElementById('note-4') as HTMLElement;
+    var n8 = document.getElementById('note-8') as HTMLElement;
+    var n5 = document.getElementById('note-5') as HTMLElement;
+    var n7 = document.getElementById('note-7') as HTMLElement;
+    var n6 = document.getElementById('note-6') as HTMLElement;
+    var pairs: HTMLElement[] = [n0, n1, n11, n2, n10, n3, n9, n4, n8, n5, n7, n6];
+    return pairs;
+}
 export function getNoteElementsForDrawingPairs(): void {
-    var n0 = document.getElementById('note-0');
-    var n1 = document.getElementById('note-1');
-    var n11 = document.getElementById('note-11');
-    var n2 = document.getElementById('note-2');
-    var n10 = document.getElementById('note-10');
-    var n3 = document.getElementById('note-3');
-    var n9 = document.getElementById('note-9');
-    var n4 = document.getElementById('note-4');
-    var n8 = document.getElementById('note-8');
-    var n5 = document.getElementById('note-5');
-    var n7 = document.getElementById('note-7');
-    var n6 = document.getElementById('note-6');
-    var pairs = [n0, n1, n11, n2, n10, n3, n9, n4, n8, n5, n7, n6];
+    var pairs = getPairs();
     for (let i = 0; i < pairs.length; i += 2) {
-        const element1 = pairs[i] as HTMLElement;
-        const element2 = pairs[i + 1] as HTMLElement;
+        const element1 = pairs[i]
+        const element2 = pairs[i + 1]
 
         const position1 = getElementPosition(element1);
         const position2 = getElementPosition(element2);
