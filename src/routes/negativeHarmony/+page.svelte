@@ -4,6 +4,7 @@
 	import { calculateRotationForKey } from './utility/drawingUtilities';
 	import { circleOfFifths, filterSelectedKeyForEnharmonics } from './utility/musicDataUtilities';
 	import ShowLinearPairs from './ShowLinearPairs.svelte';
+	import Listener from './Listener.svelte';
 
 	let selectedKeyInParent = 'C';
 	var notesInParent = circleOfFifths[selectedKeyInParent];
@@ -35,6 +36,7 @@
 	{/if}
 </div>
 <ShowLinearPairs bind:notes={notesInParent} bind:selectedKey={selectedKeyInParent} />
+<Listener />
 
 <style>
 	div {

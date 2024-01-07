@@ -1,6 +1,8 @@
 <script lang="ts">
-	import { createEventDispatcher, onMount } from 'svelte';
-	import { getNoteElementsForDrawingPairs } from './utility/drawingUtilities';
+	import { createEventDispatcher, onMount, onDestroy } from 'svelte';
+	import { browser } from '$app/environment'; // Import the browser variable
+	import { drawLine, getNoteElementsForDrawingPairs } from './utility/drawingUtilities';
+	import { handleResize } from './utility/windowUtilities';
 	export var selectedKey: string;
 	export var notes: string[];
 	export var rotation: number = 0;
@@ -34,9 +36,20 @@
 		'B♯': () => 'F♯♯',
 		F: () => 'C'
 	};
-
+	function reloadOnResize() {
+		window.location.reload();
+	}
 	onMount(() => {
 		getNoteElementsForDrawingPairs();
+		if (browser) {
+			window.addEventListener('resize', reloadOnResize);
+		}
+	});
+
+	onDestroy(() => {
+		if (browser) {
+			window.removeEventListener('resize', reloadOnResize);
+		}
 	});
 
 	function getPairLineTransform(note: string): string {
@@ -48,7 +61,7 @@
 				throw new Error('pair unfound');
 			}
 			const angle = (index + pairIndex) * 15 - 90;
-
+			console.log('ANGLE', angle);
 			return `rotate(${angle}deg)`;
 		} catch (error) {
 			console.log(error, 'error');
@@ -81,17 +94,19 @@
 		{/if}
 	{/each}
 </div>
-<svg
-	id="lineSvg"
-	style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"
->
-	<line id="line-0" stroke-opacity="0.5" stroke="black" stroke-width="2" />
-	<line id="line-2" stroke="black" stroke-width="2" />
-	<line id="line-4" stroke="black" stroke-width="2" />
-	<line id="line-6" stroke="black" stroke-width="2" />
-	<line id="line-8" stroke="black" stroke-width="2" />
-	<line id="line-10" stroke="black" stroke-width="2" />
-</svg>
+<div id="svg-container">
+	<svg
+		id="lineSvg"
+		style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;"
+	>
+		<line id="line-0" stroke-opacity="0.5" stroke="black" stroke-width="2" />
+		<line id="line-2" stroke="black" stroke-width="2" />
+		<line id="line-4" stroke="black" stroke-width="2" />
+		<line id="line-6" stroke="black" stroke-width="2" />
+		<line id="line-8" stroke="black" stroke-width="2" />
+		<line id="line-10" stroke="black" stroke-width="2" />
+	</svg>
+</div>
 
 <style>
 	.wheel {
