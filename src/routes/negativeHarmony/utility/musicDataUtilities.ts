@@ -1,4 +1,13 @@
 
+export const maj7 = " △7";
+export const min7 = " -7";
+export const halfDim7 = " ø7";
+export const flat = "♭";
+export const dim = 'dim';
+
+
+export const triadConversions: string[] = ['I-', 'V-', `${flat}VI`, 'V-', 'IV-', `${flat}III`,]
+
 export const circleOfFifths: { [key: string]: string[] } = {
     C: ['C', 'G', 'D', 'A', 'E', 'B', 'F♯', 'D♭', 'A♭', 'E♭', 'B♭', 'F'],
     "C♯": ['C', 'F𝄪', 'D', 'A', 'E', 'B', 'F♯', 'C♯', 'G♯', 'D♯', 'A♯', 'E♯'],

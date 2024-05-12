@@ -41,15 +41,15 @@
 	}
 	onMount(() => {
 		getNoteElementsForDrawingPairs();
-		if (browser) {
-			window.addEventListener('resize', reloadOnResize);
-		}
+		// if (browser) {
+		// 	window.addEventListener('resize', reloadOnResize);
+		// }
 	});
 
 	onDestroy(() => {
-		if (browser) {
-			window.removeEventListener('resize', reloadOnResize);
-		}
+		// if (browser) {
+		// 	window.removeEventListener('resize', reloadOnResize);
+		// }
 	});
 
 	function getPairLineTransform(note: string): string {
@@ -61,7 +61,7 @@
 				throw new Error('pair unfound');
 			}
 			const angle = (index + pairIndex) * 15 - 90;
-			console.log('ANGLE', angle);
+
 			return `rotate(${angle}deg)`;
 		} catch (error) {
 			console.log(error, 'error');
@@ -71,6 +71,7 @@
 	}
 </script>
 
+<!-- <div> -->
 <div class="wheel" id="wheel" style="transform: translate(-50%, -50%) rotate({rotation}deg);">
 	{#each notes as note, index}
 		<button
@@ -94,6 +95,7 @@
 		{/if}
 	{/each}
 </div>
+<!-- </div> -->
 <div id="svg-container">
 	<svg
 		id="lineSvg"
@@ -114,7 +116,7 @@
 		height: 500px;
 		border-radius: 50%;
 		background-color: #f0f0f0;
-		position: absolute;
+		position: relative;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
