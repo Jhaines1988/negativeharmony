@@ -5,11 +5,11 @@
 		majorScales,
 		majorScalesReflections,
 		generateNegativesFromCircleOfFifths
-	} from './utility/musicDataUtilities';
+	} from '../utility/musicDataUtilities';
 	import {
 		getNoteElementsForDrawingPairs,
 		getNoteValuesFromPairs
-	} from './utility/drawingUtilities';
+	} from '../utility/drawingUtilities';
 	import { onMount } from 'svelte';
 	export var selectedKey: string;
 	export var notes: string[];

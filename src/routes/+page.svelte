@@ -1,12 +1,10 @@
 <script lang="ts">
-	import KeySelector from './negativeHarmony/KeySelector.svelte';
-	import CircleOfFifthsByKey from './negativeHarmony/CircleOfFifthsByKey.svelte';
-	import { calculateRotationForKey } from './negativeHarmony/utility/drawingUtilities';
-	import {
-		circleOfFifths,
-		filterSelectedKeyForEnharmonics
-	} from './negativeHarmony/utility/musicDataUtilities';
-	import ShowLinearPairs from './negativeHarmony/ShowLinearPairs.svelte';
+	import KeySelector from './KeySelector.svelte';
+	import CircleOfFifthsByKey from './CircleOfFifthsByKey.svelte';
+	import { calculateRotationForKey } from '../utility/drawingUtilities';
+	import { circleOfFifths, filterSelectedKeyForEnharmonics } from '../utility/musicDataUtilities';
+	import ShowLinearPairs from './ShowLinearPairs.svelte';
+	import Listener from './Listener.svelte';
 
 	let selectedKeyInParent = 'C';
 	var notesInParent = circleOfFifths[selectedKeyInParent];
@@ -21,39 +19,29 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Hodfsdfsdfme</title>
-	<meta name="Negative Harmony" content="Svelte demo app" />
-</svelte:head>
-
-<section class="key-selector">
-	<p>Selected Key: {selectedKeyInParent}</p>
-
-	<KeySelector
-		on:keychange={handleKeyChange}
-		on:focus={handleKeyChange}
-		bind:selectedKey={selectedKeyInParent}
-	/>
-</section>
-{#if selectedKeyInParent}
-	<section class="circle-of-fifths">
+<KeySelector
+	on:keychange={handleKeyChange}
+	on:focus={handleKeyChange}
+	bind:selectedKey={selectedKeyInParent}
+/>
+<div>
+	{#if selectedKeyInParent}
+		<p>Selected Key: {selectedKeyInParent}</p>
 		<CircleOfFifthsByKey
 			on:keychange={handleKeyChange}
 			bind:rotation={rotationinParent}
 			bind:notes={notesInParent}
 			bind:selectedKey={selectedKeyInParent}
 		/>
-	</section>
-{/if}
-<section>
-	<ShowLinearPairs bind:notes={notesInParent} bind:selectedKey={selectedKeyInParent} />
-</section>
+	{/if}
+</div>
+<ShowLinearPairs bind:notes={notesInParent} bind:selectedKey={selectedKeyInParent} />
+<Listener />
 
 <style>
-	section.key-selector {
-		display: flex;
-		flex-direction: column;
-	}
-	section.circle-of-fifths {
+	div {
+		display: grid;
+		height: 300px;
+		margin-bottom: 100px;
 	}
 </style>

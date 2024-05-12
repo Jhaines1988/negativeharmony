@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { circleOfFifths } from './utility/musicDataUtilities';
+	import { circleOfFifths } from '../utility/musicDataUtilities';
 
 	export var selectedKey: string;
 
