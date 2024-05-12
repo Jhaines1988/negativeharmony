@@ -22,8 +22,8 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Hodfsdfsdfme</title>
+	<meta name="Negative Harmony" content="Svelte demo app" />
 </svelte:head>
 
 <section class="key-selector">
