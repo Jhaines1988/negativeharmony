@@ -6,7 +6,7 @@
 	<nav>
 		<ul>
 			<li aria-current={$page.url.pathname.startsWith('/negativeHarmony') ? 'page' : undefined}>
-				<a href="/negativeHarmony">Negative Harmony</a>
+				<!-- <a href="/playground">Negative Harmony</a> -->
 			</li>
 		</ul>
 	</nav>

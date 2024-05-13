@@ -3,8 +3,6 @@
 	import CircleOfFifthsByKey from './CircleOfFifthsByKey.svelte';
 	import { calculateRotationForKey } from '../utility/drawingUtilities';
 	import { circleOfFifths, filterSelectedKeyForEnharmonics } from '../utility/musicDataUtilities';
-	import ShowLinearPairs from './ShowLinearPairs.svelte';
-	import Listener from './Listener.svelte';
 
 	let selectedKeyInParent = 'C';
 	var notesInParent = circleOfFifths[selectedKeyInParent];
@@ -19,29 +17,47 @@
 	}
 </script>
 
-<KeySelector
-	on:keychange={handleKeyChange}
-	on:focus={handleKeyChange}
-	bind:selectedKey={selectedKeyInParent}
-/>
-<div>
-	{#if selectedKeyInParent}
-		<p>Selected Key: {selectedKeyInParent}</p>
-		<CircleOfFifthsByKey
-			on:keychange={handleKeyChange}
-			bind:rotation={rotationinParent}
-			bind:notes={notesInParent}
-			bind:selectedKey={selectedKeyInParent}
-		/>
-	{/if}
-</div>
-<ShowLinearPairs bind:notes={notesInParent} bind:selectedKey={selectedKeyInParent} />
-<Listener />
+<section class="info">
+	<div>
+		<h1>Negative Harmony</h1>
+		<p>
+			Cosmic ocean not a sunrise but a galaxyrise emerged into consciousness invent the universe
+			intelligent beings light years. Citizens of distant epochs shores of the cosmic ocean from
+			which we spring a billion trillion vanquish the impossible citizens of distant epochs. A very
+			small stage in a vast cosmic arena a mote of dust suspended in a sunbeam venture courage of
+			our questions inconspicuous motes of rock and gas dream of the mind's eye and billions upon
+			billions upon billions upon billions upon billions upon billions upon billions.
+		</p>
+	</div>
+	<KeySelector
+		on:keychange={handleKeyChange}
+		on:focus={handleKeyChange}
+		bind:selectedKey={selectedKeyInParent}
+		bind:notes={notesInParent}
+	/>
+</section>
+{#if selectedKeyInParent}
+	<CircleOfFifthsByKey
+		on:keychange={handleKeyChange}
+		bind:rotation={rotationinParent}
+		bind:notes={notesInParent}
+		bind:selectedKey={selectedKeyInParent}
+	/>
+{/if}
+
+<!-- <div> -->
+
+<!-- </div> -->
+
+<!-- <Listener /> -->
 
 <style>
-	div {
-		display: grid;
-		height: 300px;
-		margin-bottom: 100px;
+	@media (max-width: 1024px) {
+		section {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 0.5fr;
+			gap: 3%;
+		}
 	}
 </style>

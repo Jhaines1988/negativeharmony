@@ -1,15 +1,10 @@
 <script lang="ts">
 	import {
-		generateNegativePairsFromChromaticScale,
-		circleOfFifths,
 		majorScales,
 		majorScalesReflections,
 		generateNegativesFromCircleOfFifths
 	} from '../utility/musicDataUtilities';
-	import {
-		getNoteElementsForDrawingPairs,
-		getNoteValuesFromPairs
-	} from '../utility/drawingUtilities';
+
 	import { onMount } from 'svelte';
 	export var selectedKey: string;
 	export var notes: string[];
@@ -17,14 +12,16 @@
 	$: reflected = majorScalesReflections[selectedKey];
 
 	onMount(() => {
-		console.log(generateNegativesFromCircleOfFifths(notes));
+		console.log(generateNegativesFromCircleOfFifths(notes), 'imount');
 	});
 
 	function onInputChangeHandler(note: string) {}
 </script>
 
 <h2>
-	Pairs in Negative Harmony for {selectedKey}
+	<b>
+		Pairs in Negative Harmony for {selectedKey}
+	</b>
 </h2>
 <table>
 	<thead>
@@ -49,6 +46,7 @@
 		border-collapse: collapse;
 		border: 1px solid black;
 		text-align: center;
+		height: 200px;
 	}
 	th,
 	td {
@@ -57,5 +55,9 @@
 
 	td {
 		width: 250px;
+	}
+	h2 {
+		margin: 2rem 0 0.5rem 0;
+		flex-basis: 100%;
 	}
 </style>

@@ -17,7 +17,7 @@ const buttonRadius = 30;
 
 export function calculateRotationForKey(key: string, notes: string[]): number {
     const index = notes.indexOf(key);
-    return -index * 30
+    return -index * 30;
 }
 
 export function getNoteValuesFromPairs(): string[] {
@@ -79,6 +79,7 @@ export function drawLine(startX: number, startY: number, endX: number, endY: num
 
 export function getElementPosition(element: HTMLElement): Position {
     const rect = element.getBoundingClientRect();
+
     return {
         x: rect.left + window.scrollX + rect.width / 2,
         y: rect.top + window.scrollY + rect.height / 2
