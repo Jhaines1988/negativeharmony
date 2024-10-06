@@ -5,8 +5,9 @@
 <header>
 	<nav>
 		<ul>
-			<li aria-current={$page.url.pathname.startsWith('/negativeHarmony') ? 'page' : undefined}>
-				<!-- <a href="/playground">Negative Harmony</a> -->
+			<li aria-current={$page.url.pathname.startsWith('/') ? 'page' : undefined}>
+				<a href="/">Negative Harmony</a>
+				<a href="/keyboard">Keys</a>
 			</li>
 		</ul>
 	</nav>
@@ -16,6 +17,7 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+		padding: 1rem 0;
 	}
 
 	nav {
